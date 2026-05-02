@@ -78,7 +78,7 @@ def retrieve_batch(queries: list[str]) -> list[pd.DataFrame]:
     """
     Version optimisée pour traiter plusieurs requêtes d'un coup.
     """
-    batch_size = len(queries)
+    batch_size = 4
     # 1. Préparation de tous les prompts
     all_prompts = []
     for query in queries:
