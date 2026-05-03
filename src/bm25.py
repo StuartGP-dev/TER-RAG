@@ -2,7 +2,23 @@ from . import config
 import pandas as pd
 from langchain_core.documents import Document
 from langchain_community.retrievers import BM25Retriever
+import spacy
+nlp = spacy.load("fr_core_news_sm", disable=["parser", "ner"])
 
+def spacy_tokenizer(text: str) -> list[str]:
+    doc = nlp(str(text).lower())
+
+    tokens = [
+        token.text
+        for token in doc
+    ]
+
+    bigrams = [
+        tokens[i] + "_" + tokens[i + 1]
+        for i in range(len(tokens) - 1)
+    ]
+
+    return tokens + bigrams
 
 print("[BM25] Indexation du corpus...")
 
@@ -16,6 +32,7 @@ docs = [
 
 bm25_retriever = BM25Retriever.from_documents(
     docs,
+    preprocess_func=spacy_tokenizer,
 )
 
 bm25_retriever.k = config.TOP_K
