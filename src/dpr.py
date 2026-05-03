@@ -10,7 +10,6 @@ if config.HF_TOKEN is not None:
     os.environ["HF_TOKEN"] = config.HF_TOKEN
     os.environ["HUGGINGFACE_HUB_TOKEN"] = config.HF_TOKEN
 print("[DPR] Chargement des encodeurs...")
-# Utilisation d'AutoTokenizer et AutoModel pour supporter l'architecture CamemBERT (RoBERTa)
 
 old_verbosity = hf_logging.get_verbosity()
 hf_logging.set_verbosity_error()
@@ -31,7 +30,7 @@ for i in range(0, len(texts), config.DPR_BATCH_SIZE):
     batch_texts = texts[i : i + config.DPR_BATCH_SIZE]
     batch_inputs = ctx_tokenizer(batch_texts, return_tensors="pt", padding=True, truncation=True, max_length=512).to(config.DEVICE)
     with torch.no_grad():
-        # Pour CamemBERT, on extrait l'embedding du premier token [CLS]/<s> via last_hidden_state
+        # Extraction de l'embedding du premier token
         outputs = ctx_encoder(**batch_inputs)
         batch_embeddings = outputs.last_hidden_state[:, 0, :].detach().cpu().numpy().astype(np.float32)
     dpr_batches.append(batch_embeddings)
@@ -64,8 +63,7 @@ def retrieve_batch(queries: list[str]) -> list[pd.DataFrame]:
     Encode une liste de questions en une seule passe avec l'encodeur spécifique 
     et trouve les chunks correspondants pour chacune.
     """
-    # On passe directement la liste. Ajout de padding=True car les questions 
-    # n'ont pas forcément la même longueur.
+    # Encodage groupé des questions avec padding pour gérer les longueurs variables
     inputs = q_tokenizer(queries, return_tensors="pt", padding=True, truncation=True, max_length=512).to(config.DEVICE)
     
     with torch.no_grad():
@@ -73,17 +71,16 @@ def retrieve_batch(queries: list[str]) -> list[pd.DataFrame]:
         outputs = q_encoder(**inputs)
         query_embeddings = outputs.last_hidden_state[:, 0, :].detach().cpu().numpy().astype(np.float32)
         
-    # Normalisation vectorisée (axis=1 pour normaliser chaque ligne indépendamment)
+    # Normalisation de chaque embedding de requête
     query_embeddings /= np.linalg.norm(query_embeddings, axis=1, keepdims=True) + 1e-12
     
-    # Produit matriciel global : doc_embeddings (N_docs, Dim) @ query_embeddings.T (Dim, N_queries)
-    # Le résultat all_scores est une matrice (N_docs, N_queries)
+    # Calcul matriciel des similarités entre documents et requêtes
     all_scores = doc_embeddings @ query_embeddings.T
     
     results = []
-    # On reconstruit le DataFrame de résultat pour chaque question
+    # Construction du DataFrame de résultats pour chaque question
     for i in range(len(queries)):
-        scores = all_scores[:, i] # On prend la colonne correspondant à la question i
+        scores = all_scores[:, i]
         idx = np.argsort(scores)[-config.TOP_K:][::-1]
         
         result = config.CORPUS_DF.iloc[idx].copy().reset_index(drop=True)

@@ -46,7 +46,7 @@ def to_chunk(input_path, output_filename, tokenizer_name, max_tokens, overlap):
 
             chunked.append(new_doc)
 
-            # Format compatible avec load_corpus()
+            # Format de sortie compatible avec le chargement du corpus
             rows.append({
                 "doc_id": new_doc["doc_id"],
                 "url": new_doc["url"],

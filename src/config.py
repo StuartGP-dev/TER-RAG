@@ -45,4 +45,4 @@ CORPUS_DF = chunker.to_chunk(
     overlap=80
 )
 
-print("[CONFIG] Corpus chunké.")
+print("[CONFIG] Corpus découpé en chunks.")
