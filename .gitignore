@@ -2,8 +2,6 @@ __pycache__/
 .ipynb_checkpoints/
 .env
 *.env
-debug/
-emissions/
-*.csv
 *.log
 .DS_Store
+

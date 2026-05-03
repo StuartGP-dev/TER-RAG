@@ -1,0 +1,69 @@
+
+================================================================================
+QUESTION:
+Quelles conférences sont regroupées dans CORIA-TALN 2025 ?
+
+CONTEXT:
+RJC (RECITAL-RJCRI) – CORIA-TALN 2025
+RJC (RECITAL-RJCRI)
+Dans le cadre des conférences conjointes CORIA-TALN 2025 (https://coria-taln-2025.lis-lab.fr/) organisées à Marseille du 30 juin au 4 juillet 2025, nous organisons des Rencontres Jeunes Chercheur.euse.s, RJC, qui regroupent RECITAL-RJCRI.
+RJC est réservé aux étudiant·e·s (master et doctorat) ainsi qu’aux jeunes chercheur·euse·s ayant obtenu leur doctorat depuis moins d’un an. L’objectif est de soutenir les travaux des jeunes chercheur·euse·s en Recherche d’Information ou en Traitement Automatique du Langage afin de faire connaître leurs idées et travaux en cours mais aussi d’obtenir des retours constructifs. Les encadrant·e·s ne doivent pas faire partie des auteurs mais peuvent apparaître dans la partie remerciements ou en note de bas de page. Les traductions en français d’articles précédemment soumis ou acceptés à des conférences ou workshops internationaux ne sont pas recevables pour RECITAL.
+Thématiques (liste non exhaustive)
+- Les communications pourront porter sur tous les sujets habituels du traitement automatique des langues et la recherche d’information, incluant, de façon non limitative, les thèmes suivants :
+- Phonétique, phonologie, morphologie, étiquetage morphosyntaxique
+- Syntaxe, grammaires, analyse syntaxique, chunking
+- Sémantique, pragmatique, discours
+- Sémantique lexicale et distributionnelle
+- Aspect
+---
+Événements – CORIA-TALN 2025
+Événements
+Soirées Festives
+Soirée étudiante “Ice Breaker”
+Lundi 30 Juin – 19h30
+Cette soirée est réservée aux étudiants inscrits à l’ensemble de la conférence CORIA-TALN. Sponsorisée par le GDR TAL de CNRS Sciences Informatiques, elle vise à faire se rencontrer dans un cadre convivial les doctorants inscrits à CORIA-TALN avant le début de la conférence afin de faciliter les échanges scientifiques durant la semaine. Rendez vous à 19h30 à la BARAKA JEUX sur le Cours Julien, haut lieu de la vie festive marseillaise. Adresse : 21 Cours Julien, 13006 Marseille
+Soirée de Bienvenue
+Mardi 1er juillet – 18h30-23h00
+La Soirée de Bienvenue de la conférence CORIA-TALN aura lieu sur le campus St Charles, sur le parvi à coté de la salle des posters (Salle de Conférences). Cette soirée sera dédiée à Laurence Danlos, pionnières de la linguistique informatique en France et personnage majeur de la communauté de la conférence TALN qui nous a quittés en fin d’année dernière.
+Cette soirée prendra la forme d’un cocktail suivi d’un concert d’un groupe surprise !
+Soirée de Gala
+Jeudi 3 Juillet – 19h00-23h30
+La soirée de gala de CORIA-TALN 2025 aura lieu dans le cadre incroyable de la Citadelle de Marseille. Dans les jard
+---
+TALN – CORIA-TALN 2025
+TALN
+Dans le cadre des conférences conjointes CORIA-TALN 2025
+(https://coria-taln-2025.lis-lab.fr/) organisées à Marseille, nous
+sollicitons des propositions d’articles présentant des recherches
+scientifiques sur le traitement du langage naturel.
+TALN rassemble les chercheuses et chercheurs travaillant sur les
+aspects théoriques, empiriques et applicatifs du traitement automatique
+du langage naturel. L’objectif de cette conférence est de rassembler la
+communauté scientifique internationale francophone sur les sujets liés
+à la manipulation par les machines du langage, qu’il soit écrit ou dans
+une diversité de modalités, délivré dans une ou plusieurs langues. Ces
+travaux portent à la fois sur la compréhension et la génération du
+langage, dans des documents, enregistrements ou interactions. Ils
+s’intéressent aux modèles formels, statistiques ou fondés sur
+l’apprentissage automatique et leur application dans des domaines
+variés tels que l’industrie, les sciences humaines ou la santé. Les
+sujets comme la méthodologie d’évaluation et les aspects éthiques y ont
+une importance toute particulière.
+La conférence TALN est ouverte à l’ensemble de la communauté
+scientifique internationale concernée par le traitement du langage
+naturel. Le public visé par TALN est celui des académiques, incluant
+les personnes étudiant en master et doctorat, des industriels, et des
+autres spécialistes du domaine. Toutes les publications TALN sont
+diffusées en accès ouvert sur HAL et au travers de l
+
+ANSWER:
+R
+
+ANSWER EXPECTED:
+L'édition 2025 regroupe CORIA, RJCRI, TALN et RÉCITAL.
+
+JUDGE RAW:
+ois
+
+PARSED:
+{}
