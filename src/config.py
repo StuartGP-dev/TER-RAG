@@ -13,7 +13,7 @@ os.environ['https_proxy'] = PROXY
 os.environ['HTTP_PROXY'] = PROXY
 os.environ['HTTPS_PROXY'] = PROXY
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-
+os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
 HF_TOKEN = os.getenv("HF_TOKEN")
 
 # -----------------------------
@@ -30,9 +30,9 @@ DPR_QUESTION_MODEL_PATH = "etalab-ia/dpr-question_encoder-fr_qa-camembert"
 # -----------------------------
 TOP_K = 5
 DPR_BATCH_SIZE = 16
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+DEVICE = "cuda:0"
 
-CHUNKED_PATH = "data/documents_all_chunked.json"
+CHUNKED_PATH = "data/documents_all_chunked.jsonl"
 
 if os.path.exists(CHUNKED_PATH) and os.path.getsize(CHUNKED_PATH) > 0:
     print("[CONFIG] Fichier chunké déjà présent, pas de rechunking.")
@@ -48,7 +48,7 @@ else:
     print("[CONFIG] Fichier chunké absent ou vide, chunking...")
     CORPUS_DF = chunker.to_chunk(
         JSONL_PATH,
-        "documents_all_chunked.json",
+        "documents_all_chunked.jsonl",
         GENERATOR_MODEL_PATH,
         max_tokens=450,
         overlap=80

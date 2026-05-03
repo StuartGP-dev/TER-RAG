@@ -1,13 +1,14 @@
+from . import config
 import torch
 import numpy as np
 import pandas as pd
 from transformers import AutoTokenizer, AutoModel
-from . import config
 from transformers.utils import logging as hf_logging
 import os
 
-os.environ["HF_TOKEN"] = config.HF_TOKEN
-os.environ["HUGGINGFACE_HUB_TOKEN"] = config.HF_TOKEN
+if config.HF_TOKEN is not None:
+    os.environ["HF_TOKEN"] = config.HF_TOKEN
+    os.environ["HUGGINGFACE_HUB_TOKEN"] = config.HF_TOKEN
 print("[DPR] Chargement des encodeurs...")
 # Utilisation d'AutoTokenizer et AutoModel pour supporter l'architecture CamemBERT (RoBERTa)
 

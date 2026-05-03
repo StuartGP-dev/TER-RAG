@@ -7,8 +7,15 @@ from sklearn.metrics.pairwise import linear_kernel
 print("[TF-IDF] Initialisation et vectorisation du corpus...")
 
 # Initialisation du vectorizer avec tes paramètres optimisés
-vectorizer = TfidfVectorizer()
-
+vectorizer = TfidfVectorizer(
+    lowercase=True,
+    strip_accents="unicode",
+    stop_words=None,
+    ngram_range=(1, 2),
+    min_df=1,
+    norm="l2",
+    sublinear_tf=True,
+)
 # On transforme tout le contenu du corpus chargé dans config.py
 doc_matrix = vectorizer.fit_transform(config.CORPUS_DF["content"].tolist())
 
