@@ -6,14 +6,16 @@ import pandas as pd
 from transformers import pipeline
 from langchain_huggingface import HuggingFaceEmbeddings
 import warnings
-# Masquage des avertissements liés à l'affichage de TQDM
-warnings.filterwarnings("ignore", message=".*IProgress not found.*")
+warnings.filterwarnings("ignore", message=r".*IProgress not found.*")
+warnings.filterwarnings("ignore", message=r".*_check_is_size will be removed in a future PyTorch release.*",category=FutureWarning)
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 if config.HF_TOKEN is not None:
     os.environ["HF_TOKEN"] = config.HF_TOKEN
     os.environ["HUGGINGFACE_HUB_TOKEN"] = config.HF_TOKEN
 import torch
 from transformers import BitsAndBytesConfig
+
+
 
 # 1. Configuration de la quantification 4-bit
 bnb_config = BitsAndBytesConfig(
