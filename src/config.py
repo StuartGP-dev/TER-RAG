@@ -7,11 +7,16 @@ from . import chunker
 # -----------------------------
 # VARIABLES GLOBALES ET PROXY
 # -----------------------------
-PROXY = "http://cache.ha.univ-nantes.fr:3128/"
-os.environ['http_proxy'] = PROXY
-os.environ['https_proxy'] = PROXY
-os.environ['HTTP_PROXY'] = PROXY
-os.environ['HTTPS_PROXY'] = PROXY
+USE_UNIV_PROXY = False
+
+if USE_UNIV_PROXY:
+    PROXY = "http://cache.ha.univ-nantes.fr:3128/"
+    os.environ["http_proxy"] = PROXY
+    os.environ["https_proxy"] = PROXY
+    os.environ["HTTP_PROXY"] = PROXY
+    os.environ["HTTPS_PROXY"] = PROXY
+
+
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
 HF_TOKEN = os.getenv("HF_TOKEN")

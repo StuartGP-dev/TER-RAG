@@ -1,0 +1,40 @@
+# Dépendances principales du projet TER-RAG
+# Installation recommandée : python -m pip install -r requirements.txt
+
+# Data / calcul scientifique
+numpy
+pandas
+scikit-learn
+matplotlib
+
+# Notebooks
+jupyter
+ipykernel
+ipywidgets
+
+# LLM / Transformers / GPU
+# Remarque : pour CUDA, installe PyTorch avec la commande adaptée à ta machine
+# depuis https://pytorch.org/get-started/locally/ si nécessaire.
+torch
+transformers
+accelerate
+bitsandbytes
+sentence-transformers
+huggingface-hub
+safetensors
+sentencepiece
+protobuf
+tiktoken
+
+# LangChain / retrieval
+langchain
+langchain-core
+langchain-community
+langchain-huggingface
+rank-bm25
+
+# Benchmark / suivi émissions
+codecarbon
+
+# Utilitaires
+tqdm
