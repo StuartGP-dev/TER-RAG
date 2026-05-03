@@ -37,24 +37,12 @@ TOP_K = 5
 DPR_BATCH_SIZE = 16
 DEVICE = "cuda:0"
 
-CHUNKED_PATH = "data/documents_all_chunked.jsonl"
+CORPUS_DF = chunker.to_chunk(
+    JSONL_PATH,
+    "documents_all_chunked.jsonl",
+    GENERATOR_MODEL_PATH,
+    max_tokens=450,
+    overlap=80
+)
 
-if os.path.exists(CHUNKED_PATH) and os.path.getsize(CHUNKED_PATH) > 0:
-    print("[CONFIG] Fichier chunké déjà présent, pas de rechunking.")
-    CORPUS_DF = pd.read_json(CHUNKED_PATH, lines=True)
-
-    CORPUS_DF = pd.DataFrame({
-        "doc_id": CORPUS_DF["doc_id"],
-        "url": CORPUS_DF["url"],
-        "content": CORPUS_DF["title"].fillna("") + "\n" + CORPUS_DF["text"].fillna("")
-    })
-
-else:
-    print("[CONFIG] Fichier chunké absent ou vide, chunking...")
-    CORPUS_DF = chunker.to_chunk(
-        JSONL_PATH,
-        "documents_all_chunked.jsonl",
-        GENERATOR_MODEL_PATH,
-        max_tokens=450,
-        overlap=80
-    )
+print("[CONFIG] Corpus chunké.")

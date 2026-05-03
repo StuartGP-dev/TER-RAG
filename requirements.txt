@@ -11,6 +11,8 @@ matplotlib
 jupyter
 ipykernel
 ipywidgets
+jupyterlab_widgets
+widgetsnbextension
 
 # LLM / Transformers / GPU
 # Remarque : pour CUDA, installe PyTorch avec la commande adaptée à ta machine
@@ -32,6 +34,10 @@ langchain-core
 langchain-community
 langchain-huggingface
 rank-bm25
+spacy>=3.7,<4
+
+# Modèle français spaCy utilisé par src/bm25.py
+fr-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/fr_core_news_sm-3.8.0/fr_core_news_sm-3.8.0-py3-none-any.whl
 
 # Benchmark / suivi émissions
 codecarbon
