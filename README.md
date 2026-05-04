@@ -200,6 +200,9 @@ Certains chemins sont liés à l’environnement de travail utilisé pendant le 
 
 Si une erreur de mémoire GPU apparaît, il faut généralement réduire la taille des batchs, libérer la mémoire GPU ou lancer les méthodes une par une.
 
-## Auteur
+## Auteurs
 
-Projet réalisé dans le cadre d’un TER autour de l’évaluation de méthodes RAG francophones pour un assistant conversationnel lié à TALN.
+Khalil MHEDHBI \\
+Yanis DABIN \\
+Marius MABULU \\
+Helio BARTHES
