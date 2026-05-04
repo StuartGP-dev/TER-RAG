@@ -41,8 +41,8 @@ CORPUS_DF = chunker.to_chunk(
     JSONL_PATH,
     "documents_all_chunked.jsonl",
     GENERATOR_MODEL_PATH,
-    max_tokens=450,
-    overlap=80
+    max_tokens=512,
+    overlap=64
 )
 
 print("[CONFIG] Corpus découpé en chunks.")

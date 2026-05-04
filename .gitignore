@@ -6,3 +6,4 @@ pycache/
 *.log
 .DS_Store__pycache__/
 */__pycache__/
+*.zip
